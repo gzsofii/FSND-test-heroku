@@ -3,14 +3,10 @@ from sqlalchemy import Column, String, Integer, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-'''database_path = os.environ.get('DATABASE_URL')
-if not database_path:
-    database_name = "agency"
-    database_path = "postgresql:///agency"
-'''
-
-database_name ='agency'
-default_database_path= "postgres://{}:{}@{}/{}".format('postgres', 'password', 'localhost:5432', database_name)
+#database_path = os.environ['DATABASE_URL']
+#database_name ='local_db_name'
+default_database_path="postgresql:///agency"
+#default_database_path= "postgresql://{}:{}@{}/{}".format('postgres', 'password', 'localhost:5432', database_name)
 database_path = os.getenv('DATABASE_URL', default_database_path)
 
 db = SQLAlchemy()
