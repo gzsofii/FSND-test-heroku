@@ -8,9 +8,12 @@ import json
 default_database_path="postgresql:///agency"
 #default_database_path= "postgresql://{}:{}@{}/{}".format('postgres', 'password', 'localhost:5432', database_name)
 #database_path = os.getenv('DATABASE_URL', default_database_path)
-database_path = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
-print(".................................", database_path)
-if not database_path:
+database_path = os.environ.get('DATABASE_URL')
+
+if database_path:
+    database_path = database_path.replace("://", "ql://", 1)
+    print(".................................", database_path)
+else:
     database_path=default_database_path
     print('database path: ', database_path)
 
