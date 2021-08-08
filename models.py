@@ -7,7 +7,11 @@ import json
 #database_name ='local_db_name'
 default_database_path="postgresql:///agency"
 #default_database_path= "postgresql://{}:{}@{}/{}".format('postgres', 'password', 'localhost:5432', database_name)
-database_path = os.getenv('DATABASE_URL', default_database_path)
+#database_path = os.getenv('DATABASE_URL', default_database_path)
+database_path = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
+if not database_path:
+    database_path=default_database_path
+    print('database path: ', database_path)
 
 db = SQLAlchemy()
 
