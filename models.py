@@ -6,7 +6,7 @@ import json
 #database_path = os.environ.get('DATABASE_URL')
 if True:#not database_path:
     database_name = "agency"
-    database_path = "postgres://{}/{}".format('localhost:5432', database_name)
+    database_path = "postgres:///agency"
 
 db = SQLAlchemy()
 
