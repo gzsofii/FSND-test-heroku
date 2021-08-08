@@ -3,8 +3,8 @@ from sqlalchemy import Column, String, Integer, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-#database_path = os.environ.get('DATABASE_URL')
-if True:#not database_path:
+database_path = os.environ.get('DATABASE_URL')
+if not database_path:
     database_name = "agency"
     database_path = "postgresql:///agency"
 
